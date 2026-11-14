@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEMA PrintSolutions | Impresión 3D</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        hema: {
+                            blue: '#0B192C', /* Azul muy oscuro y profesional */
+                            green: '#00FF9C', /* Verde brillante tecnológico */
+                            white: '#FFFFFF',
+                            gray: '#F1F5F9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom subtle animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+    </style>
+</head>
+<body class="bg-hema-gray text-hema-blue font-sans antialiased selection:bg-hema-green selection:text-hema-blue">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-hema-blue/95 backdrop-blur-sm border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-cube text-hema-green text-3xl"></i>
+                    <span class="font-extrabold text-2xl tracking-tight text-white">
+                        HEMA<span class="text-hema-green font-light">PrintSolutions</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#servicios" class="text-gray-300 hover:text-hema-green font-medium transition-colors">Servicios</a>
+                    <a href="#galeria" class="text-gray-300 hover:text-hema-green font-medium transition-colors">Galería</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-hema-green font-medium transition-colors">Contacto</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-hema-blue border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-hema-green hover:bg-gray-800 rounded-md">Servicios</a>
+                <a href="#galeria" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-hema-green hover:bg-gray-800 rounded-md">Galería</a>
+                <a href="#contacto" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-hema-green hover:bg-gray-800 rounded-md">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-hema-blue">
+        <!-- Decorative background circle -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-hema-green opacity-10 blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            
+            <!-- Text Content -->
+            <div class="md:w-1/2 md:pr-12 text-center md:text-left fade-in-up">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-800 text-hema-green text-sm font-semibold mb-6">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-hema-green opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-hema-green"></span>
+                    </span>
+                    Servicio activo en México
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                    ¡Hacemos tus ideas <span class="text-hema-green">realidad!</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto md:mx-0">
+                    Desde juguetes sensoriales divertidos hasta piezas funcionales ultrarresistentes en PETG para uso rudo. Imprimimos el futuro con precisión.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#galeria" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-hema-blue bg-hema-green hover:bg-emerald-400 hover:shadow-[0_0_20px_rgba(0,255,156,0.4)] transition-all duration-300">
+                        Ver Galería <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contacto" class="inline-flex justify-center items-center px-8 py-4 text-base font-bold rounded-xl text-white bg-transparent border-2 border-gray-600 hover:border-white transition-all duration-300">
+                        Cotizar Diseño
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image/Graphic -->
+            <div class="md:w-1/2 mt-12 md:mt-0 fade-in-up delay-100">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-800 group">
+                    <img src="https://placehold.co/800x600/0B192C/00FF9C?text=Impresora+3D+en+Accion" alt="Impresión 3D en proceso" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/80 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-hema-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-hema-green font-bold tracking-wide uppercase text-sm mb-2">Lo que hacemos</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-hema-blue">Nuestros Servicios</h3>
+                <div class="w-24 h-1 bg-hema-green mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-hema-gray rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-hema-blue flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-gamepad text-hema-green text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Juguetes Sensoriales</h4>
+                    <p class="text-gray-600">
+                        Pulpos, dinosaurios articulados y fidget toys impresos en PLA de colores vibrantes y materiales duales. Seguros y perfectos para todas las edades.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-hema-gray rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-hema-blue flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-wrench text-hema-green text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Piezas Funcionales (PETG)</h4>
+                    <p class="text-gray-600">
+                        Refacciones resistentes al calor y la tensión. Desde soportes de laptop para vehículos hasta elevadores de impresoras y montajes industriales.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-hema-gray rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-hema-blue flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-pen-ruler text-hema-green text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Impresión Personalizada</h4>
+                    <p class="text-gray-600">
+                        ¿Tienes una idea en mente o un modelo descargado? Nosotros lo ajustamos, elegimos el material ideal y lo imprimimos con la más alta calidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-20 bg-hema-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-hema-green font-bold tracking-wide uppercase text-sm mb-2">Nuestro Trabajo</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-hema-blue">Galería de Proyectos</h3>
+                </div>
+                <p class="text-gray-500 max-w-sm mt-4 md:mt-0 text-left md:text-right">
+                    Explora algunos de nuestros proyectos recientes impresos con tecnología Bambu Lab de alta velocidad.
+                </p>
+            </div>
+
+            <!-- CSS Grid for Images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md">
+                    <!-- Sustituye esta URL por tu foto real -->
+                    <img src="https://placehold.co/600x600/0B192C/FFFFFF?text=Pulpo+Articulado" alt="Pulpo articulado" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/90 via-hema-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-hema-green text-sm font-bold mb-1">PLA Multi-color</span>
+                        <h4 class="text-white text-xl font-semibold">Pulpo Sensorial</h4>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md">
+                    <!-- Sustituye esta URL por tu foto real -->
+                    <img src="https://placehold.co/600x600/0B192C/FFFFFF?text=Soporte+Laptop+Auto" alt="Soporte de laptop PETG" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/90 via-hema-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-hema-green text-sm font-bold mb-1">PETG Alta Resistencia</span>
+                        <h4 class="text-white text-xl font-semibold">Soporte Automotriz</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md">
+                    <img src="https://placehold.co/600x600/0B192C/FFFFFF?text=Elevador+Bambu+Lab" alt="Elevador P1S" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/90 via-hema-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-hema-green text-sm font-bold mb-1">PETG Estructural</span>
+                        <h4 class="text-white text-xl font-semibold">Elevador AMS Riser</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md">
+                    <img src="https://placehold.co/600x600/0B192C/FFFFFF?text=Dinosaurio+Rex" alt="Dinosaurio Rex" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/90 via-hema-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-hema-green text-sm font-bold mb-1">PLA Básico</span>
+                        <h4 class="text-white text-xl font-semibold">T-Rex Articulado</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md">
+                    <img src="https://placehold.co/600x600/0B192C/FFFFFF?text=Llaveros+Corporativos" alt="Llaveros HEMA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-hema-blue/90 via-hema-blue/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-hema-green text-sm font-bold mb-1">Diseño Personalizado</span>
+                        <h4 class="text-white text-xl font-semibold">Merchandising B2B</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="group relative rounded-xl overflow-hidden aspect-square bg-white shadow-md flex items-center justify-center bg-gray-100 border-2 border-dashed border-gray-300 hover:border-hema-green transition-colors">
+                    <div class="text-center p-6">
+                        <i class="fa-solid fa-camera-retro text-4xl text-gray-400 mb-4"></i>
+                        <h4 class="text-gray-600 font-semibold mb-2">Más proyectos pronto</h4>
+                        <p class="text-sm text-gray-400">Síguenos para ver nuestras nuevas creaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section / Call to Action -->
+    <section id="contacto" class="relative py-24 bg-hema-blue overflow-hidden text-center">
+        <!-- Decoracion de fondo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-gray-800 opacity-20"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gray-700 opacity-20"></div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">¿Tienes una pieza en mente?</h2>
+            <p class="text-xl text-gray-400 mb-10">
+                Mándanos un mensaje con tu idea o archivo STL. Te asesoramos sobre el mejor material (PLA o PETG) y te damos cotización sin compromiso.
+            </p>
+            
+            <!-- Botón WhatsApp -->
+            <!-- Nota: Reemplaza '525500000000' por tu número de teléfono real con código de país -->
+            <a href="https://wa.me/525500000000?text=Hola%20HEMA%20PrintSolutions,%20me%20gustar%C3%ADa%20cotizar%20una%20impresi%C3%B3n%203D" 
+               target="_blank" 
+               class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-full text-xl font-bold shadow-[0_10px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_10px_35px_rgba(37,211,102,0.6)] transform hover:-translate-y-1 transition-all duration-300">
+                <i class="fa-brands fa-whatsapp text-3xl"></i>
+                Cotizar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#070f1c] py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-cube text-hema-green text-2xl"></i>
+                <span class="font-extrabold text-xl text-white">
+                    HEMA<span class="text-hema-green font-light">PrintSolutions</span>
+                </span>
+            </div>
+            
+            <p class="text-gray-500 text-sm text-center md:text-left">
+                &copy; <span id="year"></span> HEMA PrintSolutions. Todos los derechos reservados. <br class="md:hidden">¡Hacemos tus ideas realidad!
+            </p>
+
+            <div class="flex space-x-6">
+                <!-- Redes sociales placeholders -->
+                <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                    <span class="sr-only">Facebook</span>
+                    <i class="fa-brands fa-facebook text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Dynamic Year -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
